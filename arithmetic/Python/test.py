@@ -1,10 +1,9 @@
-# coding = utf-8
+# coding=utf-8
 
 def get_next(p, nexts):
     i = 0
     j = -1
     nexts[0] = -1
-
     while i < len(p):
         if j == -1 or p[i] == p[j]:
             i = i + 1
@@ -14,32 +13,32 @@ def get_next(p, nexts):
             j = nexts[j]
 
 
-def my_find(s, p, nexts):
+def my_find(s, t, nexts):
     slen = len(s)
-    plen = len(p)
+    tlen = len(t)
 
-    if slen == 0 or plen == 0:
+    if slen == 0 or tlen == 0:
         return -1
 
-    if slen < plen:
+    if slen < tlen:
         return -1
 
     i = 0
     j = 0
-
-    while i < slen and j < plen:
-        if j == -1 or s[i] == p[j]:
+    while i < slen and j < tlen:
+        if j == -1 or s[i] == t[j]:
             i = i + 1
             j = j + 1
         else:
             j = nexts[j]
 
-    if j >= plen:
-        return i - plen
+    if j >= tlen:
+        return i - tlen
+
     return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = "abababaabcbab"
     p = "abaabc"
     lens = len(p)
